@@ -1,0 +1,17 @@
+tests:
+  - name: Model Accuracy
+    type: metric_threshold
+    metric: accuracy
+    threshold: 0.85
+dataPath: ./data/dataset.csv
+dataValidation:
+  requiredColumns:
+    - prompt
+    - expected_label
+  maxRows: 100000
+  checkNulls: true
+  checkStats: true
+  maxStdDev: 100
+environment:
+  pythonVersion: "3.8"
+  requiredPackages: {}

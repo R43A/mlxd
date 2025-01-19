@@ -1,0 +1,3 @@
+prompt,expected_label
+"Sample prompt 1", 1
+"Sample prompt 2", 0

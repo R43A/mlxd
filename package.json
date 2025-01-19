@@ -1,0 +1,58 @@
+{
+  "name": "@codnx/mlxd",
+  "version": "1.0.1",
+  "description": "CI/CD Testing Tool for ML",
+  "author": "codin.io",
+  "license": "ISC",
+  "main": "mlxd/index.js",
+  "bin": {
+    "mlxd": "./mlxd/index.bundle.js"
+  },
+  "scripts": {
+    "build": "webpack && rm -rf mlxd/python && cp -r python mlxd/ && cp config.yaml mlxd/ && cp README.md mlxd/ && cp LICENSE mlxd/ && rm -rf mlxd/data && cp -r data mlxd/data",
+    "test": "jest",
+    "postbuild": "node add-shebang.js",
+    "prepublishOnly": "npm run build",
+    "dev": "ts-node src/index.ts",
+    "postinstall": "node postinstall.js"
+  },
+  "files": [
+    "LICENSE",
+    "mlxd/**",
+    "postinstall.js",
+    "data/**"
+  ],
+  "devDependencies": {
+    "@types/axios": "^0.14.4",
+    "@types/dotenv": "^8.2.3",
+    "@types/jest": "^29.5.14",
+    "@types/js-yaml": "^4.0.9",
+    "@types/markdown-pdf": "^9.0.5",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.10.5",
+    "@types/nodemailer": "^6.4.17",
+    "@types/papaparse": "^5.3.15",
+    "jest": "^29.7.0",
+    "terser": "^5.37.0",
+    "terser-webpack-plugin": "^5.3.11",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^4.9.5",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-obfuscator": "^3.5.1"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "fs-extra": "^11.2.0",
+    "handlebars": "^4.7.8",
+    "js-yaml": "^4.1.0",
+    "markdown-pdf": "^11.0.0",
+    "nodemailer": "^6.9.16",
+    "papaparse": "^5.4.1",
+    "rimraf": "^5.0.0",
+    "uuid": "^9.0.0"
+  }
+}
